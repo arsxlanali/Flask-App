@@ -1,0 +1,65 @@
+{% extends "base.html" %} {% block content %}
+<div class="hero-body">
+  <div class="container has-text-centered">
+    <section class="is-flex is-flex-direction-row">
+      <div class="column">
+        <div style="width: 450px">
+          <div class="box has-text-left-tablet" style="height: 300px">
+            <form method="POST" action="/login">
+              <h3 class="title has-text-black">Welcome Back</h3>
+
+              <div class="field">
+                <label for="name">Email Address</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    autofocus=""
+                  />
+                </div>
+              </div>
+              {% with messages = get_flashed_messages() %} {% if messages %}
+              <div class="has-text-danger">{{ messages[0] }}</div>
+              {% endif %} {% endwith %}
+              <div class="field">
+                <label for="password">Password</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="password"
+                    name="password"
+                    placeholder="Your Password"
+                  />
+                </div>
+              </div>
+              <button class="button is-info is-pulled-right">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div
+        class="column is-two-fifths"
+        style="border-left: 2px solid rgb(240, 237, 237)"
+      >
+        <h1 class="title">New TO PAWS & Co.?</h1>
+        <h2 class="subtitle">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum ullam
+          cupiditate odit nobis enim aspernatur, eius consequatur voluptatibus
+          non officiis odio modi iste consectetur quas vel, eveniet numquam
+          debitis! Fugiat enim et adipisci eligendi cupiditate? Eveniet
+          dignissimos officiis porro recusandae ex voluptatibus. Odit aspernatur
+          voluptatem blanditiis sint natus, laboriosam pariatur.
+        </h2>
+        <a
+          class="button is-info is-inverted"
+          href="{{ url_for('auth.signup') }}"
+        >
+          <span>Signup</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
