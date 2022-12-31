@@ -1,0 +1,84 @@
+{% extends "base.html" %} {% block content %}
+<section class="hero-body" style="padding: 100px 150px;">
+    <div class="box columns">
+        <div class="column">
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Name" />
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Email Address</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="email" placeholder="Email" />
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Select Your Servies</label>
+                <div class="control">
+                    <div class="select is-fullwidth">
+                        <select>
+                            <option>Servies</option>
+                            <option>With options</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Select Date*</label>
+                <div class="control">
+                    <div class="select is-fullwidth">
+                        <select>
+                            <option>Date</option>
+                            <option>With options</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Let us know how we can help?</label>
+                <div class="control">
+                    <textarea class="textarea" placeholder="Write your answer here"></textarea>
+                </div>
+            </div>
+            <div class="control" style="padding-top:20px">
+                <button class="button is-link is-fullwidth">Submit</button>
+            </div>
+        </div>
+        <div class="column">
+            <iframe style="margin-left: 100px;" width="400" height="300" style="border:0" loading="lazy" allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDPxtZNVn1ZCuMq5Fba6U6hgJK33UnOT_w
+    &q=Space+Needle,Seattle+WA">
+            </iframe>
+            <div class="columns" style="margin-left: 100px;padding: 10px;">
+                <i class="column is-1 fa-solid fa-location-dot"></i>
+                <div>
+                    <strong>Address</strong>
+                    <address>Lorem ipsum dolor sit amet.</address>
+                </div>
+            </div>
+            <div class="columns" style="margin-left: 100px;padding: 10px;">
+                <i class="column is-1 fa-solid fa-envelope"></i>
+                <div>
+                    <strong>Address</strong>
+                    <address>Lorem ipsum dolor sit amet.</address>
+                </div>
+
+            </div>
+            <div class="columns" style="margin-left: 100px;padding: 10px;">
+                <i class="column is-1 fa-solid fa-phone"></i>
+                <div>
+                    <strong>Address</strong>
+                    <address>Lorem ipsum dolor sit amet.</address>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

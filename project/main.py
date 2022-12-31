@@ -47,6 +47,15 @@ def shopDetials(id):
     imgUrl = row[5]
     return render_template('shopdetails.html', postUrl=postUrl,title=title,
                            details=details, review=review,imgUrl=imgUrl)
+
+@main.route('/grooming')
+def grooming():
+    return render_template('grooming.html', name=current_user.name)
+
+@main.route('/contact')
+def contact():
+    return render_template('contact.html', name=current_user.name)    
+
 @main.route('/profile')
 @login_required
 def profile():
