@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <figure class="image is-2by1">
+        <img
+            src="https://media.istockphoto.com/id/930281684/photo/dogs-and-cats-peeking-over-web-banner.jpg?s=170667a&w=0&k=20&c=cbj0QmTeuQuaa8ZnoDSQdbLv9DHNmW3t8d5sIqSRC2c=" />
+    </figure>
+</section>
+<section>
+    <div class="columns" style="padding: 100px 50px;">
+        <div class="column">
+            <div style="display: flex;flex-direction: column; row-gap: 10px;">
+                <div class="control has-icons-left">
+                    <div class="select">
+                        <select>
+                            {% for item in breed %}
+                            <option value="{{item}}" SELECTED>{{item}}</option>"
+                            {% endfor %}
+                        </select>
+
+                    </div>
+                    <div class="icon is-small is-left">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                </div>
+                <div class="control has-icons-left">
+                    <div class="select">
+                           <select>
+                            {% for item in size %}
+                            <option value="{{item}}" SELECTED>{{item}}</option>"
+                            {% endfor %}
+                        </select>
+
+                    </div>
+                    <div class="icon is-small is-left">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            {%for i in range(0, 3)%}
+            <div class="row">
+                <a href="shop/{{items[i][0]}}">
+                    <img style="width: 300px; height: auto; border-radius: 10px;" src={{items[i][1]}} alt="Image" />
+                </a>
+                <p>{{items[i][2]}}</p>
+            </div>
+            {%endfor%}
+        </div>
+        <div class="column">
+            {%for i in range(3, 6)%}
+
+            <div class="row">
+                 <a href="shop/{{items[i][0]}}">
+                     <img style="width: 300px; height: auto; border-radius: 10px;" src={{items[i][1]}} alt="Image" />
+
+                 </a>
+                <p>{{items[i][2]}}</p>
+            </div>
+            {%endfor%}
+        </div>
+        <div class="column">
+            {%for i in range(6, 9)%}
+            <div class="row">
+                 <a href="shop/{{items[i][0]}}">
+                     <img style="width: 300px; height: auto; border-radius: 10px;" src={{items[i][1]}} alt="Image" />
+
+                 </a>
+                <p>{{items[i][2]}}</p>
+            </div>
+            {%endfor%}
+        </div>
+</section>
+<section class="has-text-centered" style="padding:100px 200px">
+    <h1 class="title">WHY CHOOSE US?</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque aspernatur quaerat, consequuntur facere vel neque pariatur consectetur, itaque nostrum magnam aut aliquam assumenda. Distinctio quis ipsa modi nostrum ipsam laudantium aperiam voluptas a cumque ea minus quod cum iste accusamus, quas, illum impedit optio possimus dignissimos eos dolorum laboriosam qui?</p>
+</section>
+{% endblock %}

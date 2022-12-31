@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-body has-text-centered">
+    <h1 class="title" style="text-transform:uppercase;">ALL YOU NEED tO KNOW ABOUT {{title}}</h1>
+    <div class="container" style="padding: 0 0 100px 0;">
+        <div class="media">
+            <img style="width:500px;height:450px; border-radius: 10px;margin-right: 30px;"
+                src={{postUrl}} alt="Image" />
+            <div class="media-content has-text-right">
+                <div class="content has-text-centered" style="padding:20px;">
+                    <p>
+                        {{details}}
+                    </p>
+                </div>
+                <article class="media">
+
+                    <div class="media-content">
+                        <div class="content has-text-right">
+                            <p>
+                                <br>
+                                “
+                                {{review}}
+                                ”
+                            </p>
+                        </div>
+                    </div>
+                    <div class="media-right">
+                        <figure class="image is-128x128">
+                            <img class="is-rounded" src={{imgUrl}} style="height: 100%;" alt="Image">
+                        </figure>
+                    </div>
+                </article>
+                <a class="button is-info is-inverted"  style="margin-top: 30px;" href="{{ url_for('main.home') }}">
+                    <span>BRING ME HOME</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
