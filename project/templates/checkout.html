@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-body has-text-centered">
+    <h1 class="title">SHOPPING CART</h1>
+    <div class="container columns" style="padding: 0 0 100px 0;">
+        <div class="column">
+            <div class="column">
+
+                <img style="width:270px;height:270px; border-radius: 50%;" src={{postUrl}} alt="Image" />
+            </div>
+            <div class="column">
+                <div class="has-text-left" style="padding:20px;">
+                    <p>
+                        {{details}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card column is-4">
+            <div class="card-content">
+                <div class="content has-text-left">
+                    <h3 class="has-text-weight-bold has-text-left">Payment</h3>
+                    <div class="columns">
+                        <div class="column">
+                            Miniture Poodle
+                        </div>
+                        <div class="column has-text-right">
+                            <strong>$ {{price}}</strong>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            Sub Total
+                        </div>
+                        <div class="column has-text-right">
+                            <strong>$ {{price}}</strong>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="columns">
+                        <div class="column">
+                            <p></p>
+                        </div>
+                        <div class="column has-text-right">
+                            <strong>$ 90</strong>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-2">
+                            Delivery
+                        </div>
+                        <div class="column has-text-right">
+                            Lorem ipsum dolor sit amet, officiis temporibus blanditiis maiores sapiente veniam dolores
+                            cumque officia vel.
+                        </div>
+                    </div>
+                    <form action="farward/{{id}}" method="POST">  
+                    <div class="columns">
+                        <label class="row" style="width: 40%;">Payment Method</label>
+                        <div class="checkbox row">
+                            <label class="radio">
+                                <input type="radio" name="PayPal">
+                                PayPal
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="Credit">
+                                Credit/Debit Card
+                            </label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="columns">
+                        <div class="column">
+                            <strong>Total</strong>
+                        </div>
+                        <div class="column has-text-right">
+                            <strong>$ {{price+90}}</strong>
+                        </div>
+                    </div>
+                    <button class="button is-info is-fullwidth">PROCEED TO PAYMENT</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

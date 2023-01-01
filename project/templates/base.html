@@ -47,10 +47,30 @@
                 Contact
               </a>
               {% if current_user.is_authenticated %}
-              <a href="{{ url_for('auth.logout') }}" class="button is-info is-inverted">
-                <span>Logout</span>
-              </a>
-              {% endif %}{% if not current_user.is_authenticated %}
+              <!-- <span class="navbar-item">
+                <a href="{{ url_for('auth.logout') }}" class="button is-info is-inverted">
+                  <span>{{name}}</span>
+                </a>
+              </span> -->
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                  {{name}}
+                </a>
+                <div class="navbar-dropdown has-text-dark">
+                  <a  href="{{ url_for('main.profile') }}" class="navbar-item">
+                    Profile
+                  </a>
+                      <hr class="navbar-divider">
+                  <a  href="{{ url_for('auth.logout') }}" class="navbar-item">
+                    Logout
+                  </a>
+                </div>
+              </div>
+              {% endif %}
+
+
+              {% if not current_user.is_authenticated %}
+
               <span class="navbar-item">
                 <a class="button is-info is-inverted" href="{{ url_for('auth.login') }}">
                   <span>Login/Signup</span>

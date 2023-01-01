@@ -1,7 +1,69 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<div class="hero-body is-two-thirds">
+  <div class="container has-text-centered">
+    <div class="column is-two-thirds">
+      <h3 class="title">BECOME THE PART OF OUR FAMILY</h3>
+      <div class="box">
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <div class="notification is-danger">
+          {{ messages[0] }}. Go to
+          <a href="{{ url_for('auth.login') }}">login page</a>.
+        </div>
+        {% endif %} {% endwith %}
+        <form method="POST" action="/signup" class="rows">
+          <label for="name" class="is-pulled-left">Username</label>
+          <div class="field">
+            <div class="control">
+              <input
+                class="input"
+                type="text"
+                name="name"
+                placeholder="Name"
+                autofocus=""
+              />
+            </div>
+          </div>
+          <label for="email" class="is-pulled-left">Email</label>
+          <div class="field">
+            <div class="control">
+              <input
+                class="input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                autofocus=""
+              />
+            </div>
+          </div>
 
-{% block content %}
-<h1 class="title">
-    Welcome, {{ name }}!
-</h1>
+          <label for="password" class="is-pulled-left">Password</label>
+          <div class="field">
+            <div class="control">
+              <input
+                class="input"
+                type="password"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+          <label for="password-retype" class="is-pulled-left"
+            >Re-enter Password</label
+          >
+          <div class="field">
+            <div class="control">
+              <input
+                class="input"
+                type="password"
+                name="password-retype"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+          <button class="button is-block is-info is-centered">Join</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

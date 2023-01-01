@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero-body" style="padding: 100px 150px;">
+    <div class="box columns" style="width: 400px;">
+        <div class="column">
+            <h1 class="has-text-weight-bold has-text-left" style="font-size: 22px;">PAYMENT DETAILS</h1>
+
+            <div class="field">
+                <label>Name of Card</label>
+                <div class="control">
+                    <input type="text" style="border: 0;width: 100%;outline: 0;background: transparent;border-bottom: 2px solid rgb(148, 143, 143);" />
+                </div>
+            </div>
+            <div class="field">
+                <label>Name of Nubmer</label>
+                <div class="control">
+                    <input type="number" style="border: 0;width: 100%;outline: 0;background: transparent;border-bottom: 2px solid rgb(148, 143, 143);" />
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+            <div class="field">
+                <label>Valid Through</label>
+                <div class="control">
+                    <input type="number" style="border: 0;width: 100%;outline: 0;background: transparent;border-bottom: 2px solid rgb(148, 143, 143);" />
+                </div>
+            </div>
+                </div>
+                <div class="column">
+            <div class="field">
+                <label>CVC</label>
+                <div class="control">
+                    <input type="number" style="border: 0;width: 100%;outline: 0;background: transparent;border-bottom: 2px solid rgb(148, 143, 143);" />
+                </div>
+            </div>
+                </div>
+
+            </div>
+            <div class="control" style="padding-top:20px">
+                <a href="/finish">
+                <button class="button is-link is-fullwidth">Finish Payment</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
