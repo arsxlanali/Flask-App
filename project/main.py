@@ -1,15 +1,20 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, flash
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask import request
 from flask_login import login_required, current_user
 import sqlite3
-from .models import shop
+from .models import User
 from . import db
 main = Blueprint('main', __name__)
 
 
 @main.route('/')
 def index():
-    return render_template('index.html', name=current_user.name)
+    if current_user.is_authenticated:
+        return render_template('home.html', name=current_user.name)
+    else:
+        return render_template('home.html', name='')
+
 
 
 
@@ -124,6 +129,52 @@ def finish():
 @login_required
 def profile():
     if current_user.is_authenticated:
-        return render_template('profile.html', name=current_user.name)
+        name = current_user.name
+        con = sqlite3.connect('instance\db.sqlite')
+        cur = con.cursor()
+        cur.execute("SELECT * FROM user where name = ?", (name,))
+        row = cur.fetchone()
+        name = row[1]
+        email = row[2]
+        address = row[4]
+        return render_template('profile.html', name=current_user.name, email=email, address=address)
     else:
         return render_template('profile.html', name="")
+
+
+@main.route('/profile', methods=['POST'])
+def update_profile():
+    # code to validate and add user to database goes here
+    email = request.form.get('email')
+    name = request.form.get('name')
+    password = request.form.get('password')
+    address = request.form.get('address')
+
+    # if this returns a user, then the email already exists in database
+    user = User.query.filter_by(email=email).first()
+
+    if user:  # if a user is found, we want to redirect back to signup page so user can try again
+        flash('Email address already exists')
+        return redirect(url_for('auth.signup'))
+
+    # create a new user with the form data. Hash the password so the plaintext version isn't saved.
+    new_user = User(email=email, name=name, address=address,
+                    password=generate_password_hash(password, method='sha256'))
+
+    # add the new user to the database
+    db.session.add(new_user)
+    db.session.commit()
+
+    return redirect(url_for('auth.login'))
+
+
+@main.route('/admin')
+@login_required
+def admin():
+    return render_template('admin.html', name=current_user.name)
+
+
+@main.route('/adminshop')
+@login_required
+def adminshop():
+    return render_template('adminshop.html', name=current_user.name)

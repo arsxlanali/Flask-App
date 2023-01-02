@@ -1,0 +1,401 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flask Auth Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<script>
+    (function () {
+        var burger = document.querySelector('.nav-toggle');
+        var menu = document.querySelector('.nav-menu');
+        burger.addEventListener('click', function () {
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    })();
+    $(document).ready(function () {
+        new Morris.Line({
+            // ID of the element in which to draw the chart.
+            element: 'chart1',
+            // Chart data records -- each entry in this array corresponds to a point on
+            // the chart.
+            data: [{
+                year: '2006',
+                value: 10394
+            }, {
+                year: '2007',
+                value: 50391
+            }, {
+                year: '2008',
+                value: 102025
+            }, {
+                year: '2009',
+                value: 198563
+            }, {
+                year: '2010',
+                value: 985641
+            }, {
+                year: '2011',
+                value: 1253256
+            }, {
+                year: '2012',
+                value: 4563215
+            }, {
+                year: '2013',
+                value: 10563215
+            }, {
+                year: '2014',
+                value: 50125009
+            }, {
+                year: '2015',
+                value: 129300581
+            }, {
+                year: '2016',
+                value: 256251253
+            }],
+            // The name of the data record attribute that contains x-values.
+            xkey: 'year',
+            // A list of names of data record attributes that contain y-values.
+            ykeys: ['value'],
+            // Labels for the ykeys -- will be displayed when you hover over the
+            // chart.
+            labels: ['Total Users']
+        });
+        Morris.Donut({
+            element: 'chart2',
+            data: [{
+                label: "Download Sales",
+                value: 12
+            }, {
+                label: "In-Store Sales",
+                value: 30
+            }, {
+                label: "Mail-Order Sales",
+                value: 20
+            }]
+        });
+        Morris.Area({
+            element: 'chart3',
+            data: [{
+                y: '1',
+                a: 80,
+                b: 79
+            }, {
+                y: '2',
+                a: 75,
+                b: 65
+            }, {
+                y: '3',
+                a: 50,
+                b: 40
+            }, {
+                y: '4',
+                a: 75,
+                b: 59
+            }, {
+                y: '5',
+                a: 50,
+                b: 20
+            }, {
+                y: '6',
+                a: 75,
+                b: 42
+            }, {
+                y: '7',
+                a: 75,
+                b: 50
+            }, {
+                y: '8',
+                a: 50,
+                b: 140
+            }, {
+                y: '9',
+                a: 75,
+                b: null
+            }, {
+                y: '10',
+                a: 50,
+                b: null
+            }, {
+                y: '11',
+                a: 75,
+                b: null
+            }, {
+                y: '12',
+                a: 100,
+                b: null
+            }],
+            xkey: 'y',
+            ykeys: ['a', 'b'],
+            labels: ['2015', '2016']
+        });
+        Morris.Bar({
+            element: 'chart5',
+            data: [{
+                y: '2006',
+                a: 100,
+                b: 90
+            }, {
+                y: '2007',
+                a: 75,
+                b: 65
+            }, {
+                y: '2008',
+                a: 50,
+                b: 40
+            }, {
+                y: '2009',
+                a: 75,
+                b: 65
+            }, {
+                y: '2010',
+                a: 50,
+                b: 40
+            }, {
+                y: '2011',
+                a: 75,
+                b: 65
+            }, {
+                y: '2012',
+                a: 100,
+                b: 90
+            }],
+            xkey: 'y',
+            ykeys: ['a', 'b'],
+            labels: ['Series A', 'Series B']
+        });
+    });
+</script>
+<style>
+    .morris-hover {
+        position: absolute;
+        z-index: 1000;
+    }
+
+    .morris-hover.morris-default-style {
+        border-radius: 10px;
+        padding: 6px;
+        color: #666;
+        background: rgba(255, 255, 255, 0.8);
+        border: solid 2px rgba(230, 230, 230, 0.8);
+        font-family: sans-serif;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .morris-hover.morris-default-style .morris-hover-row-label {
+        font-weight: bold;
+        margin: 0.25em 0;
+    }
+
+    .morris-hover.morris-default-style .morris-hover-point {
+        white-space: nowrap;
+        margin: 0.1em 0;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        height: 100%;
+    }
+
+    .button.is-success {
+        background-color: #2eb398;
+    }
+
+    .nav.is-dark {
+        background-color: #232b2d;
+        color: #f6f7f7;
+    }
+
+    .nav.is-dark .nav-item a,
+    .nav.is-dark a.nav-item {
+        color: #f6f7f7;
+    }
+
+    .nav.is-dark .nav-item a.button.is-default {
+        color: #f6f7f7;
+        background-color: transparent;
+        border-width: 2px;
+    }
+
+    .aside {
+        background-color: #354052;
+        margin-right: -10px;
+    }
+
+    .aside .main {
+        padding: 40px;
+        color: #6f7b7e;
+    }
+
+    .aside .title {
+        color: #6f7b7e;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .aside .main .item {
+        display: block;
+        padding: 10px 0;
+        color: #6f7b7e;
+    }
+
+    .aside .main .item.active {
+        color: #f6f7f7;
+    }
+
+    .aside .main .icon {
+        font-size: 19px;
+        padding-right: 30px;
+    }
+
+    .aside .main .name {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .admin-panel {
+        padding-bottom: 0;
+    }
+
+    .content {
+        display: block;
+        background-color: #fff;
+        padding: 40px 20px;
+    }
+
+    .hero .tabs ul {
+        border-bottom: 1px solid #d3d6db;
+    }
+</style>
+
+<body>
+    <div class="columns">
+        <aside class="column aside hero is-fullheight is-hidden-mobile">
+            <div>
+                <div class="navbar-brand" style="padding:20px">
+                    <a class="navbar-item" href="/admin">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Eo_circle_blue_letter-d.svg/2048px-Eo_circle_blue_letter-d.svg.png"
+                            alt="Home" />
+                    </a>
+                    <div class="navbar-item has-text-white">
+                        PAWS & CO.
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="title">Overview</div>
+                    <a href="#" class="item active"><span class="icon"><i class="fa fa-home"></i></span><span
+                            class="name">Appointments</span></a>
+                    <a href="{{ url_for('main.adminshop') }}" class="item"><span class="icon"><i class="fa fa-map-marker"></i></span><span
+                            class="name">Shop</span></a>
+                    <a href="#" class="item"><span class="icon"><i class="fa fa-th-list"></i></span><span
+                            class="name">Enquries</span></a>
+                    <a href="#" class="item"><span class="icon"><i class="fa-solid fa-lock"></i></span><span
+                            class="name">Admins</span></a>
+                </div>
+            </div>
+        </aside>
+
+        <div class="column is-10 admin-panel">
+            <div style="width:100%;display: flex;align-items: center;justify-content:space-between; padding: 20px;">
+            <div class="title">
+
+                OVERVIEW
+            </div>
+            <div class="field has-addons" >
+               <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div style="display: flex;align-items: center;">
+                <div class="media-content">
+                    {{name}}
+                </div>
+                <div class="media-right">
+                    <figure class="image is-48x48">
+                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+                    </figure>
+                </div>
+
+            </div>
+            </div>
+
+            <section class="section">
+                <div class="columns is-mobile is-multiline">
+                    <div class="column is-full-mobile">
+                        <section class="panel">
+                            <div class="panel-heading" style="display: flex;justify-content: space-between;">
+                                <div>
+
+                                    All Shop Details
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                                    Sort
+                                    <i class="fa-solid fa-filter"></i>
+                                    Filter
+                                </div>
+                            </div>
+                            <div class="panel-block">
+                                <table class="table" style="width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>Shop Details</th>
+                                            <th>Customer Name</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <th>
+                                                <article class="media">
+                                                    <div class="media-left">
+                                                        <figure class="image is-48x48">
+                                                            <img class="is-rounded"
+                                                                src="https://bulma.io/images/placeholders/128x128.png"
+                                                                alt="Image">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="media-content">
+                                                        <div>
+                                                            <strong>Lorem ipsum dolor sit.</strong>
+                                                            <p style="font-weight: 400;">
+                                                                Updated 2 mintues ago
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </th>
+                                            <td>
+                                                <strong>
+
+                                                    Tome Crusie
+                                                </strong>
+                                                <br>
+                                                on 28.04.2022
+                                            </td>
+                                            <td> <strong>
+
+                                                    May 26 2019
+                                                </strong>
+                                                <br>
+                                                6:30 PM
+                                            </td>
+
+                                        </tr>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+</body>
+
+</html>
